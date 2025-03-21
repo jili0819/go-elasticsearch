@@ -498,6 +498,18 @@ func (r *Update) ErrorTrace(errortrace bool) *Update {
 	return r
 }
 
+// Pipeline The ID of the pipeline to use to preprocess incoming documents.
+// If the index has a default ingest pipeline specified, setting the value to
+// `_none` turns off the default ingest pipeline for this request.
+// If a final pipeline is configured, it will always run regardless of the value
+// of this parameter.
+// API name: pipeline
+func (r *Update) Pipeline(pipeline string) *Update {
+	r.values.Set("pipeline", pipeline)
+
+	return r
+}
+
 // FilterPath Comma-separated list of filters in dot notation which reduce the response
 // returned by Elasticsearch.
 // API name: filter_path
